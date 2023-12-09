@@ -1,11 +1,12 @@
 import sys
-
 import eyed3
-from PyQt5 import QtGui, QtCore
-from PyQt5.QtWidgets import QApplication, QWidget, QFileDialog, QTableWidgetItem, QMenu, QAction
+from PyQt5 import QtGui, QtCore, QtWidgets
+from PyQt5.QtGui import QIcon, QPixmap
+from PyQt5.QtWidgets import QApplication, QWidget, QFileDialog, QTableWidgetItem, QMenu, QAction, QHeaderView
 from PyQt5.QtCore import QUrl, QTime, pyqtSignal
 from PyQt5.uic import loadUi
 from PyQt5.QtMultimedia import QMediaPlayer, QMediaContent
+
 
 class MusicPlayerApp(QWidget):
     filesDropped = pyqtSignal(list)
@@ -14,16 +15,25 @@ class MusicPlayerApp(QWidget):
         super(MusicPlayerApp, self).__init__()
         loadUi('app/ui/music_player.ui', self)
 
-        '''
         try:
-            with open("app/resources/simple.qss") as f:
+            with open("app/resources/style.qss") as f:
                 style = f.read()
                 self.setStyleSheet(style)
         except FileNotFoundError:
             print("Stylesheet file not found")
         except Exception as e:
             print(f"Error loading stylesheet: {str(e)}")
-        '''
+
+        # Load icons for push buttons
+        self.pushButton_2.setIcon(QIcon('app/resources/Icons/play.svg'))
+        self.pushButton.setIcon(QIcon('app/resources/Icons/backward-step.svg'))
+        self.pushButton_3.setIcon(QIcon('app/resources/Icons/forward-step.svg'))
+        self.pushButton_4.setIcon(QIcon('app/resources/Icons/upload.svg'))
+        self.pushButton_5.setIcon(QIcon('app/resources/Icons/list.svg'))
+        self.pushButton_6.setIcon(QIcon('app/resources/Icons/pied-piper-alt.svg'))
+        self.pushButton_7.setIcon(QIcon('app/resources/Icons/shuffle.svg'))
+        self.pushButton_8.setIcon(QIcon('app/resources/Icons/repeat.svg'))
+
 
         self.progressBar.setValue(0)
         self.progressBar.setTextVisible(False)
@@ -38,8 +48,9 @@ class MusicPlayerApp(QWidget):
 
         self.tableWidget.setShowGrid(False)
         self.tableWidget.setColumnCount(3)
-        self.tableWidget.setHorizontalHeaderLabels(['Title', 'Artist', 'Length'])
-        self.tableWidget.horizontalHeader().setStretchLastSection(True)
+        self.tableWidget.horizontalHeader().setSectionResizeMode(QHeaderView.Stretch)
+        self.tableWidget.setSelectionBehavior(QtWidgets.QAbstractItemView.SelectRows)
+        self.tableWidget.verticalHeader().setVisible(False)
 
         self.pushButton_2.clicked.connect(self.play_music)
         self.pushButton.clicked.connect(self.rewind)
@@ -161,8 +172,8 @@ class MusicPlayerApp(QWidget):
 
     def check_track_end(self):
         if (
-            self.media_player.state() == QMediaPlayer.PlayingState
-            and self.media_player.position() >= self.media_player.duration()
+                self.media_player.state() == QMediaPlayer.PlayingState
+                and self.media_player.position() >= self.media_player.duration()
         ):
             if not self.album_sampler_mode:
                 self.current_track_index += 1
@@ -240,11 +251,12 @@ class MusicPlayerApp(QWidget):
         if 0 <= self.current_track_index < self.tableWidget.rowCount():
             for j in range(self.tableWidget.columnCount()):
                 item = self.tableWidget.item(self.current_track_index, j)
-                item.setBackground(QtGui.QColor(0, 255, 0))
+                item.setBackground(QtGui.QColor(0, 128, 255))
 
     def format_length(self, length):
         minutes, seconds = divmod(length, 60)
         return f"{int(minutes):02d}:{int(seconds):02d}"
+
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)

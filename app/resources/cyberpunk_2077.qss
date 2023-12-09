@@ -70,6 +70,13 @@ QHeaderView::section {
 
 QLabel {
     color: #ffd700;
+    background-color: #1a1a1a;  /* Set the background color for QLabel */
+}
+
+QGroupBox {
+    background-color: #1a1a1a;  /* Set the background color for QGroupBox */
+    border: none;
+    margin-top: 10px;  /* Adjust margin as needed */
 }
 
 QMenuBar {
