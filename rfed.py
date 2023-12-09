@@ -15,10 +15,6 @@ class MusicPlayerApp(QWidget):
         super(MusicPlayerApp, self).__init__()
         loadUi('app/ui/music_player.ui', self)
 
-        self.setWindowTitle("Ano Music Player")
-        self.isPlaying = False  # Flag to track the playback state
-
-
         try:
             with open("app/resources/style.qss") as f:
                 style = f.read()
@@ -37,7 +33,6 @@ class MusicPlayerApp(QWidget):
         self.pushButton_6.setIcon(QIcon('app/resources/Icons/pied-piper-alt.svg'))
         self.pushButton_7.setIcon(QIcon('app/resources/Icons/shuffle.svg'))
         self.pushButton_8.setIcon(QIcon('app/resources/Icons/repeat.svg'))
-
 
         self.progressBar.setValue(0)
         self.progressBar.setTextVisible(False)
@@ -168,10 +163,9 @@ class MusicPlayerApp(QWidget):
     def on_media_status_changed(self, status):
         if status == QMediaPlayer.EndOfMedia:
             if not self.album_sampler_mode:
-                # self.current_track_index += 1
+                self.current_track_index += 1
                 if self.current_track_index < len(self.playlist):
-                    # self.play_music()
-                    self.skip_song()
+                    self.play_music()
                 else:
                     self.current_track_index = 0
 
@@ -194,30 +188,17 @@ class MusicPlayerApp(QWidget):
 
     def play_music(self):
         if self.playlist:
-            if not self.isPlaying:
-                # If not playing, start playing the song
-                track_info = self.playlist[self.current_track_index]
-                media_content = QMediaContent(QUrl.fromLocalFile(track_info['path']))
-                self.media_player.setMedia(media_content)
-                self.media_player.play()
-                self.update_currently_playing_song()
-                self.label.setText(track_info['title'])
-                self.label_2.setText(track_info['artist'])
-                self.isPlaying = True
-                self.pushButton_2.setIcon(QIcon('app/resources/Icons/pause.svg'))
-            else:
-                # If playing, pause the song
-                self.media_player.pause()
-                self.isPlaying = False
-                self.pushButton_2.setIcon(QIcon('app/resources/Icons/play.svg'))  # Set the play icon
+            track_info = self.playlist[self.current_track_index]
+            media_content = QMediaContent(QUrl.fromLocalFile(track_info['path']))
+            self.media_player.setMedia(media_content)
+            self.media_player.play()
+            self.update_currently_playing_song()
+            self.label.setText(track_info['title'])
+            self.label_2.setText(track_info['artist'])
 
     def rewind(self):
-        self.current_track_index -= 1
-        if self.current_track_index < len(self.playlist):
-            self.play_music()
-        else:
-            self.current_track_index = 0
-        self.play_music()
+        position = self.media_player.position() - 5000
+        self.media_player.setPosition(max(position, 0))
 
     def skip_song(self):
         self.current_track_index += 1
@@ -225,7 +206,6 @@ class MusicPlayerApp(QWidget):
             self.play_music()
         else:
             self.current_track_index = 0
-        self.play_music()
 
     def update_progress(self, position):
         duration = self.media_player.duration()
@@ -279,7 +259,6 @@ class MusicPlayerApp(QWidget):
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
-    app.setWindowIcon(QIcon('app/resources/Icons/radio.svg'))# Set the application icon
     mainWin = MusicPlayerApp()
     mainWin.show()
     sys.exit(app.exec_())
