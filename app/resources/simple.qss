@@ -1,0 +1,146 @@
+QWidget {
+    background-color: #f0f0f0; /* Background color */
+    color: #333333; /* Text color */
+    font-family: 'Segoe UI', sans-serif;
+}
+
+QMainWindow {
+    background-color: #e0e0e0; /* Main window background color */
+}
+
+QProgressBar {
+    border: 1px solid #e0e0e0; /* Progress bar border color */
+    border-radius: 5px;
+    background-color: #f0f0f0; /* Progress bar background color */
+    height: 10px;
+}
+
+QProgressBar::chunk {
+    background-color: #ff9900; /* Progress bar chunk color */
+}
+
+QSlider::groove:horizontal {
+    height: 5px;
+    background: #e0e0e0; /* Slider groove background color */
+}
+
+QSlider::handle:horizontal {
+    background: #ff9900; /* Slider handle color */
+    border: 1px solid #ff9900; /* Slider handle border color */
+    width: 10px;
+    margin: -5px 0;
+    border-radius: 5px;
+}
+
+QPushButton {
+    background-color: #ff9900; /* Button background color */
+    color: #ffffff; /* Button text color */
+    border: 1px solid #ff9900; /* Button border color */
+    padding: 4px 8px; /* Adjust the padding to change the size of the push buttons */
+    border-radius: 5px;
+}
+
+QPushButton:hover {
+    background-color: #e68a00; /* Button hover background color */
+}
+
+QTableWidget {
+    background-color: #f0f0f0; /* Table widget background color */
+    color: #333333; /* Table widget text color */
+    border: 1px solid #e0e0e0; /* Table widget border color */
+    gridline-color: #d9d9d9; /* Table widget gridline color */
+}
+
+QTableWidget::item {
+    padding: 10px;
+    border: none;
+}
+
+QTableWidget::item:selected {
+    background-color: #ff9900; /* Selected item background color */
+    color: #ffffff; /* Selected item text color */
+}
+
+QHeaderView::section {
+    background-color: #e0e0e0; /* Header section background color */
+    padding: 8px;
+    border: none;
+}
+
+QLabel {
+    color: #333333; /* Label text color */
+}
+
+QMenuBar {
+    background-color: #e0e0e0; /* Menu bar background color */
+    color: #333333; /* Menu bar text color */
+}
+
+QMenuBar::item {
+    background-color: #e0e0e0; /* Menu bar item background color */
+    color: #333333; /* Menu bar item text color */
+    padding: 10px 15px;
+}
+
+QMenuBar::item:selected {
+    background-color: #d9d9d9; /* Selected menu bar item background color */
+}
+
+QMenu {
+    background-color: #f0f0f0; /* Menu background color */
+    color: #333333; /* Menu text color */
+    border: 1px solid #e0e0e0; /* Menu border color */
+}
+
+QMenu::item {
+    padding: 10px 20px;
+}
+
+QMenu::item:selected {
+    background-color: #ff9900; /* Selected menu item background color */
+    color: #ffffff; /* Selected menu item text color */
+}
+
+#pushButton_2 {
+    background-color: #57c47e;
+    color: #ffffff;
+    border: 1px solid #57c47e;
+    padding: 4px 8px; /* Adjust the padding to change the size of the push buttons */
+    border-radius: 5px;
+}
+
+#pushButton_2:hover {
+    background-color: #3ea66e;
+}
+
+#pushButton_5 {
+    background-color: #e74c3c;
+    color: #ffffff;
+    border: 1px solid #e74c3c;
+    padding: 4px 8px; /* Adjust the padding to change the size of the push buttons */
+    border-radius: 5px;
+}
+
+#pushButton_5:hover {
+    background-color: #cf4536;
+}
+
+#pushButton_6 {
+    background-color: #f39c12;
+    color: #ffffff;
+    border: 1px solid #f39c12;
+    padding: 4px 8px; /* Adjust the padding to change the size of the push buttons */
+    border-radius: 5px;
+}
+
+#pushButton_6:hover {
+    background-color: #d68910;
+}
+
+#pushButton_6:pressed {
+    background-color: #c17a0b;
+}
+
+#pushButton_6:checked {
+    background-color: #f39c12;
+}

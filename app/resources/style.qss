@@ -1,0 +1,144 @@
+QWidget {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+QMainWindow {
+    background-color: #34495e;
+}
+
+QProgressBar {
+    border: 1px solid #34495e;
+    border-radius: 5px;
+    background-color: #2c3e50;
+    height: 10px;
+}
+
+QProgressBar::chunk {
+    background-color: #3498db;
+}
+
+QSlider::groove:horizontal {
+    height: 5px;
+    background: #34495e;
+}
+
+QSlider::handle:horizontal {
+    background: #3498db;
+    border: 1px solid #3498db;
+    width: 10px;
+    margin: -5px 0;
+    border-radius: 5px;
+}
+
+#QPushButton {
+    background-color: #ffd700;
+    color: #000000;
+    border: 1px solid #ffd700;
+    padding: 2px 4px;  /* Adjusted padding for a smaller size */
+    border-radius: 2px;  /* Adjusted border-radius for a less rounded appearance */
+}
+
+QPushButton:hover {
+    background-color: #2980b9;
+}
+
+QTableWidget {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    border: 1px solid #2c3e50;
+    gridline-color: #34495e;
+}
+
+QTableWidget::item {
+    padding: 10px;
+    border: none;
+}
+
+QTableWidget::item:selected {
+    background-color: #3498db;
+}
+
+QHeaderView::section {
+    background-color: #34495e;
+    padding: 8px;
+    border: none;
+}
+
+QLabel {
+    color: #ecf0f1;
+}
+
+QMenuBar {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+}
+
+QMenuBar::item {
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    padding: 10px 15px;
+}
+
+QMenuBar::item:selected {
+    background-color: #34495e;
+}
+
+QMenu {
+    background-color: #34495e;
+    color: #ecf0f1;
+    border: 1px solid #34495e;
+}
+
+QMenu::item {
+    padding: 10px 20px;
+}
+
+QMenu::item:selected {
+    background-color: #3498db;
+}
+
+#pushButton_2 {
+    background-color: #27ae60;
+    color: #ecf0f1;
+    border: 1px solid #27ae60;
+    padding: 8px 15px;
+    border-radius: 5px;
+}
+
+#pushButton_2:hover {
+    background-color: #218c54;
+}
+
+#pushButton_5 {
+    background-color: #e74c3c;
+    color: #ecf0f1;
+    border: 1px solid #e74c3c;
+    padding: 8px 15px;
+    border-radius: 5px;
+}
+
+#pushButton_5:hover {
+    background-color: #c0392b;
+}
+
+#pushButton_6 {
+    background-color: #f39c12;
+    color: #ecf0f1;
+    border: 1px solid #f39c12;
+    padding: 8px 15px;
+    border-radius: 5px;
+}
+
+#pushButton_6:hover {
+    background-color: #d68910;
+}
+
+#pushButton_6:pressed {
+    background-color: #b9770e;
+}
+
+#pushButton_6:checked {
+    background-color: #f39c12;
+}
