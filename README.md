@@ -1,4 +1,5 @@
 # Music Player App
+![Screenshot 2023-12-27 at 19 31 50](https://github.com/regisgambiza/Music_player/assets/36857562/7b7ae41c-4ccf-453a-bf75-77b494eca57b)
 
 ## Overview
 
