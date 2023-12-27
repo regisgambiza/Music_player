@@ -1,6 +1,5 @@
 # Music Player App
-![Screenshot 2023-12-27 at 19 31 50](https://github.com/regisgambiza/Music_player/assets/36857562/7b7ae41c-4ccf-453a-bf75-77b494eca57b)
-
+![Screenshot 2023-12-27 at 19 54 01](https://github.com/regisgambiza/Music_player/assets/36857562/31c1182f-bbbf-45d1-be87-93fdcbebcabd)
 ## Overview
 
 The Music Player App is a simple desktop application built using PyQt5 and Python. It allows users to play, manage, and enjoy their music collection.
